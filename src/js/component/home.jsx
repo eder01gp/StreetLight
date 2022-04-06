@@ -1,24 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
+	const [color, setColor] = useState("red");
+
+	useEffect(() => {});
+
 	return (
-		<div>
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="container">
+			<div
+				className="bg-dark mx-auto m-0 p-0"
+				style={{ width: "20px", height: "50px" }}></div>
+			<div className="col p-3 bg-dark mx-auto" style={{ width: "125px" }}>
+				<div
+					className="row rounded-circle border-dark bg-danger mx-auto"
+					style={{ width: "75px", height: "75px" }}
+					onClick={() => setColor("red")}
+					id={color == "red" ? "shadow" : null}></div>
+				<div
+					className="row rounded-circle border-dark mx-auto bg-warning"
+					style={{ width: "75px", height: "75px" }}
+					onClick={() => setColor("yellow")}
+					id={color == "yellow" ? "shadow" : null}></div>
+				<div
+					className="row rounded-circle bor=er-dark mx-auto bg-success"
+					style={{ width: "75px", height: "75px" }}
+					onClick={() => setColor("green")}
+					id={color == "green" ? "shadow" : null}></div>
+			</div>
 		</div>
 	);
 };
